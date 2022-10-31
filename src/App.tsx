@@ -9,12 +9,14 @@ function App() {
   return (
     <div className="App">
         <Routes>
-            <Route path={"/"} element={<PrivateRoutesHoc isAuth={isAuth} />}>
-                <Route path="main" element={<p>main</p>} />
-                <Route path="main/:id" element={<p>id</p>} />
+            <Route element={<Landing/>}>
+                <Route path={"/"} element={<PrivateRoutesHoc isAuth={isAuth} />}>
+                    <Route path="main" element={<p>main</p>} />
+                    <Route path="main/:id" element={<p>id</p>} />
+                </Route>
+                <Route path="*" element={<p>There's nothing here: 404!</p>} />
+                <Route path="login" element={<p>login</p>} />
             </Route>
-            <Route path="*" element={<p>There's nothing here: 404!</p>} />
-            <Route path="login" element={<p>login</p>} />
         </Routes>
     </div>
   );
