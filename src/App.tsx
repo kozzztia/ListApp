@@ -5,7 +5,7 @@ import PrivateRoutesHoc from "./privateHocs/PrivateRoutesHoc";
 import Landing from "./Components/Landing";
 
 function App() {
-    const [isAuth , setIsAuth] = useState<boolean|null>(null)
+    const [isAuth , setIsAuth] = useState<boolean>(false)
   return (
     <div className="App">
         <Routes>
