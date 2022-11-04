@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Button, Divider, Form, Input} from "antd";
 import {LoginOutlined} from "@ant-design/icons";
 import {useNavigate} from "react-router-dom";
+import UserContext from "../UserContext/UserContext";
 
 interface LoginInterface {
     username:string;
@@ -12,12 +13,15 @@ interface SetIsAuthInterface {
 }
 
 const LoginPage = ({setIsAuth} :SetIsAuthInterface) => {
+    const state = useContext(UserContext)
+    function searchedIsAuthedUser (e : LoginInterface){
+        state.map(item => item.user === e.username && item.password === e.password&&console.log(item))
+    }
     const navigate = useNavigate()
     function login(e: LoginInterface) {
-        console.log(e.username);
-        console.log(e.password);
-        setIsAuth(prev => !prev);
-        navigate("/main" );
+        // setIsAuth(prev => !prev);
+        // navigate("/main" );
+        searchedIsAuthedUser(e)
     }
     return (
         <>

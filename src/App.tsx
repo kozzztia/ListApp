@@ -5,11 +5,13 @@ import {Route, Routes} from "react-router-dom";
 import PrivateRoutesHoc from "./Components/privateHocs/PrivateRoutesHoc";
 import Landing from "./Components/Landing";
 import LoginPage from "./Components/Login-page/LoginPage";
+import UserContext, {initialState} from "./Components/UserContext/UserContext";
 
 function App() {
     const [isAuth , setIsAuth] = useState<boolean>(false)
   return (
     <div className="App">
+        <UserContext.Provider value={initialState}>
         <Routes>
             <Route element={<Landing/>}>
                 <Route path={"/"} element={<PrivateRoutesHoc isAuth={isAuth} />}>
@@ -20,6 +22,7 @@ function App() {
                 <Route path="login" element={<LoginPage setIsAuth={setIsAuth}/>} />
             </Route>
         </Routes>
+        </UserContext.Provider>
     </div>
   );
 }
