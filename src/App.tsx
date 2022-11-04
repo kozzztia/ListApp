@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import './App.css';
+import 'antd/dist/antd.css';
 import {Route, Routes} from "react-router-dom";
 import PrivateRoutesHoc from "./privateHocs/PrivateRoutesHoc";
 import Landing from "./Components/Landing";
+import LoginPage from "./Login-page/LoginPage";
 
 function App() {
-    const [isAuth , setIsAuth] = useState<boolean>(false)
+    const [isAuth , setIsAuth] = useState<boolean>(true)
   return (
     <div className="App">
         <Routes>
@@ -15,7 +17,7 @@ function App() {
                     <Route path="main/:id" element={<p>id</p>} />
                 </Route>
                 <Route path="*" element={<p>There's nothing here: 404!</p>} />
-                <Route path="login" element={<p>login</p>} />
+                <Route path="login" element={<LoginPage/>} />
             </Route>
         </Routes>
     </div>
