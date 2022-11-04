@@ -7,7 +7,7 @@ import Landing from "./Components/Landing";
 import LoginPage from "./Login-page/LoginPage";
 
 function App() {
-    const [isAuth , setIsAuth] = useState<boolean>(true)
+    const [isAuth , setIsAuth] = useState<boolean>(false)
   return (
     <div className="App">
         <Routes>
@@ -17,7 +17,7 @@ function App() {
                     <Route path="main/:id" element={<p>id</p>} />
                 </Route>
                 <Route path="*" element={<p>There's nothing here: 404!</p>} />
-                <Route path="login" element={<LoginPage/>} />
+                <Route path="login" element={<LoginPage setIsAuth={setIsAuth}/>} />
             </Route>
         </Routes>
     </div>

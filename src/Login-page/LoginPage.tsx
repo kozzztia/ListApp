@@ -1,16 +1,33 @@
 import React from 'react';
-import {Button, Checkbox, Divider, Form, Input} from "antd";
+import {Button, Divider, Form, Input} from "antd";
+import {LoginOutlined} from "@ant-design/icons";
+import {useNavigate} from "react-router-dom";
 
-const LoginPage = () => {
+interface LoginInterface {
+    username:string;
+    password:string;
+}
+interface SetIsAuthInterface {
+    setIsAuth :  React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const LoginPage = ({setIsAuth} :SetIsAuthInterface) => {
+    const navigate = useNavigate()
+    function login(e: LoginInterface) {
+        console.log(e.username);
+        console.log(e.password);
+        setIsAuth(prev => !prev);
+        navigate("/main");
+    }
     return (
         <>
-            <Divider orientation={"left"}>Login</Divider>
+            <Divider orientation={"left"}><LoginOutlined style={{color:"red"}}/></Divider>
         <Form
             name="basic"
             labelCol={{ span: 6 }}
             wrapperCol={{ span: 16 }}
             initialValues={{ remember: true }}
-            onFinish={(e) => console.log(e)}
+            onFinish={(e)=>login(e)}
             autoComplete="off"
         >
             <Form.Item
