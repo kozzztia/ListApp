@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import {Content, Footer, Header} from "antd/es/layout/layout";
-import {Button} from "antd";
 
 const Landing = () => {
     return (

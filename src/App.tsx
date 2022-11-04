@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
 import {Route, Routes} from "react-router-dom";
-import PrivateRoutesHoc from "./privateHocs/PrivateRoutesHoc";
+import PrivateRoutesHoc from "./Components/privateHocs/PrivateRoutesHoc";
 import Landing from "./Components/Landing";
-import LoginPage from "./Login-page/LoginPage";
+import LoginPage from "./Components/Login-page/LoginPage";
 
 function App() {
     const [isAuth , setIsAuth] = useState<boolean>(false)
